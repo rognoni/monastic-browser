@@ -5,6 +5,14 @@
 <script>
 import axios from 'axios'
 import marked from 'marked'
+import hljs from 'highlight.js'
+import 'highlight.js/styles/atom-one-light.css'
+
+marked.setOptions({
+  highlight(code) {
+    return hljs.highlightAuto(code).value
+  },
+})
 
 export default {
     data () {
@@ -32,3 +40,21 @@ export default {
     }
 }
 </script>
+
+<style>
+h1, h2, h3, h4, ol, ul, p, pre {
+    margin: 10px 0 10px 0;
+}
+pre > code {
+    font-weight: normal;
+    font-size: 100%;
+    color: black;
+    padding: 10px;
+}
+pre > code::before {
+    content: "";
+}
+pre > code::after {
+    content: "";
+}
+</style>
