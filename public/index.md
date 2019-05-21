@@ -1,5 +1,5 @@
 
-![screenshot](../images/screenshot.jpg)
+![screenshot](images/screenshot.jpg)
 
 ----
 
