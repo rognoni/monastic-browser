@@ -45,10 +45,19 @@ export default {
     },
     methods: {
         loadMarkdown(url) {
+            this.$root.$children[0].loading = true
+            
             const uri = URI(url)
             marked.setOptions({ baseUrl: uri.filename('').href() })
             axios.get(url)
-                .then(response => this.markdown = response.data)
+                .then((response) => {
+                    this.$root.$children[0].loading = false
+                    this.markdown = response.data
+                })
+                .catch((error) => {
+                    this.$root.$children[0].loading = false
+                    this.markdown = `\`${error.message}\``
+                })
         }
     }
 }

@@ -38,6 +38,18 @@
       </v-text-field>
     </v-toolbar>
 
+    <v-dialog
+      v-model="loading"
+      hide-overlay
+      persistent
+      width="300">
+      <v-card color="primary" dark>
+        <v-card-text>Please stand by
+          <v-progress-linear indeterminate color="white" class="mb-0"></v-progress-linear>
+        </v-card-text>
+      </v-card>
+    </v-dialog>
+
     <v-content>
       <v-container fluid>
         <router-view></router-view>
@@ -52,7 +64,8 @@ export default {
   data () {
     return {
       url: '',
-      drawer: null
+      drawer: null,
+      loading: false
     }
   },
   watch: {
