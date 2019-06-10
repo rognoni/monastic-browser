@@ -18,6 +18,10 @@ renderer.link = function (href, title, text) {
     return `<a href="${href}">${text}</a>`
 }
 
+renderer.image = function (href, title, text) {
+    return `<img src="${href}" alt="${text}" class="responsive">`
+}
+
 marked.setOptions({
   renderer: renderer,
   highlight(code) {
@@ -78,5 +82,9 @@ pre > code::before {
 }
 pre > code::after {
     content: "";
+}
+.responsive {
+    max-width: 100%;
+    height: auto;
 }
 </style>
