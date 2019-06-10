@@ -19,6 +19,7 @@ renderer.link = function (href, title, text) {
 }
 
 renderer.image = function (href, title, text) {
+    href = URI(href, this.options.baseUrl).href()
     return `<img src="${href}" alt="${text}" class="responsive">`
 }
 
